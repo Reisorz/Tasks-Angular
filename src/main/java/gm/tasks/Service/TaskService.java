@@ -30,8 +30,8 @@ public class TaskService implements ITaskService{
     }
 
     @Override
-    public void saveTask(Task task) {
-        taskRepository.save(task);
+    public Task saveTask(Task task) {
+        return taskRepository.save(task);
     }
 
     @Override

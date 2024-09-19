@@ -15,4 +15,8 @@ export class TaskService {
   getTaskList(): Observable<Task[]> {
     return this.clientHttp.get<Task[]>(this.urlBase);
   }
+
+  addTask(task: Task): Observable<Object> {
+    return this.clientHttp.post(this.urlBase, task);
+  }
 }

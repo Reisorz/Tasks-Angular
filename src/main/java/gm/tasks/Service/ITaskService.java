@@ -11,7 +11,7 @@ public interface ITaskService {
 
     public List<Task> searchTaskByName (String taskName);
 
-    public void saveTask(Task task);
+    public Task saveTask(Task task);
 
     public void deleteTask(Task task);
 
