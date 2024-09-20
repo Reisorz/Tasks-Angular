@@ -24,4 +24,13 @@ export class TaskListComponent {
     this.router.navigate(['edit-task', id]);
   }
 
+  deleteTask(id: number) {
+    this.taskService.deleteTask(id).subscribe(
+      {
+        next: (data) => this.getTasks(),
+        error: (error) => console.log(error)
+      }
+    );
+  }
+
 }

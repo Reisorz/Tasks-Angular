@@ -27,4 +27,9 @@ export class TaskService {
   editTask(id: number, task: Task): Observable<Object> {
     return this.clientHttp.put(`${this.urlBase}/${id}`, task);
   }
+
+  deleteTask(id: number): Observable<Object> {
+    return this.clientHttp.delete(`${this.urlBase}/${id}`);
+  }
+
 }

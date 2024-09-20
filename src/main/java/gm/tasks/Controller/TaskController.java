@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -57,5 +59,17 @@ public class TaskController {
         task.setStatus(receivedTask.getStatus());
         this.taskService.saveTask(task);
         return ResponseEntity.ok(task);
+    }
+
+    @DeleteMapping("/tasks/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteTask(@PathVariable int id) {
+        Task task = taskService.searchTaskById(id);
+        if (task == null) {
+            throw new NotFoundExecption("Could not find id: " + id);
+        }
+        this.taskService.deleteTask(task);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 }
