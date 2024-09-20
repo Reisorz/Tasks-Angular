@@ -12,6 +12,7 @@
                 <th scope="col">Task</th>
                 <th scope="col">Responsible person</th>
                 <th scope="col">Status</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -20,6 +21,11 @@
                 <td>{{task.taskName}}</td>
                 <td>{{task.responsiblePerson}}</td>
                 <td>{{task.status}}</td>
+                <td class="text-center">
+                    <div>
+                        <button (click)="editTask(task.taskId)" class="btn btn-warning btn-sm me-3">Edit</button>
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>

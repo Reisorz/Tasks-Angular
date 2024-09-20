@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-list',
@@ -9,7 +10,7 @@ import { TaskService } from '../task.service';
 export class TaskListComponent {
   tasks: Task[];
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private router: Router) {}
 
   ngOnInit() {
     this.getTasks();
@@ -17,6 +18,10 @@ export class TaskListComponent {
 
   private getTasks() {
     this.taskService.getTaskList().subscribe((data => {this.tasks = data;}));
+  }
+
+  editTask(id: number) {
+    this.router.navigate(['edit-task', id]);
   }
 
 }

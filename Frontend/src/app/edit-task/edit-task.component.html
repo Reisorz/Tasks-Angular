@@ -1,6 +1,6 @@
 <div class="container">
     <div class="container text-center" style="margin: 30px;">
-        <h3>Add task</h3>
+        <h3>Edit task</h3>
     </div>
     <form (ngSubmit)="onSubmit()">
         <div class="mb-3">
@@ -17,7 +17,7 @@
             <input type="text" class="form-control" id="status" name="status" [(ngModel)]="task.status">
         </div>
         <div class="container text-center" style="margin: 30px;">
-            <button type="submit" class="btn btn-warning btn-sm me-3">Add task</button>
+            <button type="submit" class="btn btn-warning btn-sm me-3">Save changes</button>
             <a href="/" class="btn btn-danger btn-sm me-3">Return</a>
         </div>
       </form>

@@ -6,16 +6,20 @@ import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-task',
-  templateUrl: './add-task.component.html',
-  styleUrl: './add-task.component.css'
+  templateUrl: './add-task.component.html'
 })
 export class AddTaskComponent {
   task: Task = new Task();
 
-  constructor(private taskService: TaskService, private enrouter: Router){}
+  constructor(private taskService: TaskService, private router: Router){}
 
   onSubmit() {
-    this.saveTask();
+    if (this.task.taskName!=null){
+      this.saveTask();
+    }
+    else {
+      alert("Task field must be filled");
+    }
   }
 
   saveTask() {
@@ -30,7 +34,7 @@ export class AddTaskComponent {
   }
 
   goToTasksList() {
-    this.enrouter.navigate(['/tasks']);
+    this.router.navigate(['/tasks']);
   }
 
 }

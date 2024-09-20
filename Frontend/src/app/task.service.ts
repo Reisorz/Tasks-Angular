@@ -19,4 +19,12 @@ export class TaskService {
   addTask(task: Task): Observable<Object> {
     return this.clientHttp.post(this.urlBase, task);
   }
+
+  getTaskById(id: number) {
+    return this.clientHttp.get<Task>(`${this.urlBase}/${id}`);
+  }
+
+  editTask(id: number, task: Task): Observable<Object> {
+    return this.clientHttp.put(`${this.urlBase}/${id}`, task);
+  }
 }
